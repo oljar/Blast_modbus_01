@@ -176,23 +176,24 @@ class Controller:
 
         ani = FuncAnimation(self.fig, self.animate, interval=50, cache_frame_data=True, repeat=True, save_count=1)
         plt.show()
+##########################################################################################################################
 
     def settings_1(self):
-        self.instrument_1 = minimalmodbus.Instrument("/dev/ttyUSB0", 1)
-        # self.instrument_1 = minimalmodbus.Instrument('com6', 1)
+        #self.instrument_1 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_1_adr_var)
+        self.instrument_1 = minimalmodbus.Instrument('com4', self.model.dev_1_adr_var)
         self.instrument_1.serial.baudrate = 9600  # Baud
         self.instrument_1.serial.bytesize = 8
         self.instrument_1.serial.parity = serial.PARITY_NONE
         self.instrument_1.serial.stopbits = 1
         self.instrument_1.serial.timeout = 0.5  # seconds
-        self.instrument_1.address = 1  # this is the slave address number
+        self.instrument_1.address = 16  # this is the slave address number
         self.instrument_1.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
         # self.instrument_1.clear_buffers_before_each_transaction = True
         # self.instrument_1.close_port_after_each_call=True
 
     def settings_2(self):
-        self.instrument_2 = minimalmodbus.Instrument("/dev/ttyUSB0", 2)
-        # self.instrument_2 = minimalmodbus.Instrument('com6', 2)
+        #self.instrument_2 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_2_adr_var)
+        self.instrument_2 = minimalmodbus.Instrument('com4', self.model.dev_2_adr_var)
         self.instrument_2.serial.baudrate = 9600  # Baud
         self.instrument_2.serial.bytesize = 8
         self.instrument_2.serial.parity = serial.PARITY_NONE
@@ -295,33 +296,30 @@ class Controller:
 
     def data_pull_from_instrument(self,device_modbus,address_modbus):
         match device_modbus:
-            case 1:
-                return self.instrument_1.read_float(int(address_modbus), functioncode=4)
-            case 2:
-                return self.instrument_2.read_float(int(address_modbus), functioncode=4)
-            case 3:
-                return self.instrument_3.read_float(int(address_modbus), functioncode=4)
-            case 4:
-                return self.instrument_4.read_float(int(address_modbus), functioncode=4)
-            case 5:
-                return self.instrument_5.read_float(int(address_modbus), functioncode=4)
+             case self.model.dev_1_adr_var:
+                 return self.instrument_1.read_float(int(address_modbus), functioncode=4)
+             case self.model.dev_2_adr_var:
+                 return self.instrument_2.read_float(int(address_modbus), functioncode=4)
+             case self.model.dev_3_adr_var:
+                 return self.instrument_3.read_float(int(address_modbus), functioncode=4)
+             case self.model.dev_4_adr_var:
+                 return self.instrument_4.read_float(int(address_modbus), functioncode=4)
+             case self.model.dev_5_adr_var:
+                 return self.instrument_5.read_float(int(address_modbus), functioncode=4)
+
+
 
     def cycle_data(self):
 
         for i in range(self.conn_repeat_nr):
-            try:
-                print(f'wzp {self.data_pull_from_instrument[0](self.model.dev_1_adr_var,self.model.mod_1_adr_var)}')  
-                self.model.data_1 = self.data_pull_from_instrument[0](self.model.dev_1_adr_var,self.model.mod_1_adr_var)
-                #self.model.data_1 = self.instrument_1.read_float(int(1), functioncode=4)
-                  
-                
-                
-               
 
-                print(f'Pobrano data_1 {i}')
-                break
-            except Exception:
-                print(f'Błąd pobrania data_1 {i}')
+                try:
+                 self.model.data_1 = self.data_pull_from_instrument(self.model.dev_1_adr_var,self.model.mod_1_adr_var)
+                 print(self.model.data_1)
+                 print(f'Pobrano data_1 {i}')
+                 break
+                except Exception:
+                   print(f'Błąd pobrania data_1 {i}')
 
         for i in range(self.conn_repeat_nr):
 
