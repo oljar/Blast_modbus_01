@@ -1,5 +1,5 @@
 import csv
-
+import tkinter as tk
 
 class Model:
 
@@ -15,8 +15,8 @@ class Model:
                  data_11, data_12, data_13, data_14, data_15):
 
 
-        self.mod_1_adr_var = mod_1_adr_var
-        self.dev_1_adr_var = dev_1_adr_var
+        self.mod_1_adr_var = mod_1_adr_var.get()
+        self.dev_1_adr_var = dev_1_adr_var.get()
 
         self.mod_2_adr_var = mod_2_adr_var
         self.dev_2_adr_var = dev_2_adr_var

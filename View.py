@@ -537,6 +537,27 @@ class View(ttk.Frame):
         self.stop_check.set(False)
         self.controller.settings_1()
         self.controller.settings_2()
+        self.controller.settings_3()
+        self.controller.settings_4()
+        self.controller.settings_5()
+        self.controller.settings_6()
+        self.controller.settings_7()
+        self.controller.settings_8()
+        self.controller.settings_9()
+        self.controller.settings_10()
+        self.controller.settings_11()
+        self.controller.settings_12()
+        self.controller.settings_13()
+        self.controller.settings_14()
+        self.controller.settings_15()
+
+
+
+
+
+
+
+
 
         self.controller.transfer_data()
         #

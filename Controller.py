@@ -19,6 +19,26 @@ from threading import Thread
 class Controller:
     def __init__(self, model, view):
 
+        self.instrument_1 = None
+        self.instrument_2 = None
+        self.instrument_3 = None
+        self.instrument_4 = None
+        self.instrument_5 = None
+        self.instrument_6 = None
+        self.instrument_7 = None
+        self.instrument_8 = None
+        self.instrument_9 = None
+        self.instrument_10 = None
+        self.instrument_11 = None
+        self.instrument_12 = None
+        self.instrument_13 = None
+        self.instrument_14 = None
+        self.instrument_15 = None
+
+
+
+
+
         self.writer = None
         self.parameter = tk.StringVar()
         self.model = model
@@ -176,76 +196,190 @@ class Controller:
 
         ani = FuncAnimation(self.fig, self.animate, interval=50, cache_frame_data=True, repeat=True, save_count=1)
         plt.show()
-##########################################################################################################################
+
+    ##########################################################################################################################
 
     def settings_1(self):
-        #self.instrument_1 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_1_adr_var)
+        # self.instrument_1 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_1_adr_var)
         self.instrument_1 = minimalmodbus.Instrument('com4', self.model.dev_1_adr_var)
         self.instrument_1.serial.baudrate = 9600  # Baud
         self.instrument_1.serial.bytesize = 8
         self.instrument_1.serial.parity = serial.PARITY_NONE
         self.instrument_1.serial.stopbits = 1
         self.instrument_1.serial.timeout = 0.5  # seconds
-        self.instrument_1.address = 16  # this is the slave address number
+        self.instrument_1.address = int(str(self.view.dev_1_adr_var.get())) # this is the slave address number
+
         self.instrument_1.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
         # self.instrument_1.clear_buffers_before_each_transaction = True
         # self.instrument_1.close_port_after_each_call=True
 
     def settings_2(self):
-        #self.instrument_2 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_2_adr_var)
+        # self.instrument_2 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_2_adr_var)
         self.instrument_2 = minimalmodbus.Instrument('com4', self.model.dev_2_adr_var)
         self.instrument_2.serial.baudrate = 9600  # Baud
         self.instrument_2.serial.bytesize = 8
         self.instrument_2.serial.parity = serial.PARITY_NONE
         self.instrument_2.serial.stopbits = 1
         self.instrument_2.serial.timeout = 0.5  # seconds
-        self.instrument_2.address = 2  # this is the slave address number
+        self.instrument_2.address = int(str(self.view.dev_2_adr_var.get()))   # this is the slave address number
         self.instrument_2.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
 
         # self.instrument_2.clear_buffers_before_each_transaction = True
         # self.instrument_1.close_port_after_each_call = True
 
     def settings_3(self):
-        self.instrument_3 = minimalmodbus.Instrument("/dev/ttyUSB0", 3)
-        # self.instrument_3 = minimalmodbus.Instrument('com6', 2)
+        # self.instrument_3 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_3_adr_var)
+        self.instrument_3 = minimalmodbus.Instrument('com4', self.model.dev_3_adr_var)
         self.instrument_3.serial.baudrate = 9600  # Baud
         self.instrument_3.serial.bytesize = 8
         self.instrument_3.serial.parity = serial.PARITY_NONE
         self.instrument_3.serial.stopbits = 1
         self.instrument_3.serial.timeout = 0.5  # seconds
-        self.instrument_3.address = 2  # this is the slave address number
+        self.instrument_3.address = int(str(self.view.dev_3_adr_var.get()))  # this is the slave address number
         self.instrument_3.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
 
         # self.instrument_3.clear_buffers_before_each_transaction = True
         # self.instrument_3.close_port_after_each_call = True
 
     def settings_4(self):
-        self.instrument_4 = minimalmodbus.Instrument("/dev/ttyUSB0", 4)
-        # self.instrument_4 = minimalmodbus.Instrument('com6', 2)
+        # self.instrument_4 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_4_adr_var)
+        self.instrument_4 = minimalmodbus.Instrument('com4', self.model.dev_4_adr_var)
         self.instrument_4.serial.baudrate = 9600  # Baud
         self.instrument_4.serial.bytesize = 8
         self.instrument_4.serial.parity = serial.PARITY_NONE
         self.instrument_4.serial.stopbits = 1
         self.instrument_4.serial.timeout = 0.5  # seconds
-        self.instrument_4.address = 2  # this is the slave address number
+        self.instrument_4.address = int(str(self.view.dev_4_adr_var.get()))  # this is the slave address number
         self.instrument_4.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
 
         # self.instrument_2.clear_buffers_before_each_transaction = True
         # self.instrument_1.close_port_after_each_call = True
 
     def settings_5(self):
-        self.instrument_5 = minimalmodbus.Instrument("/dev/ttyUSB0", 5)
-        # self.instrument_5 = minimalmodbus.Instrument('com6', 2)
+        # self.instrument_5 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_5_adr_var)
+        self.instrument_5 = minimalmodbus.Instrument('com4', self.model.dev_5_adr_var)
         self.instrument_5.serial.baudrate = 9600  # Baud
         self.instrument_5.serial.bytesize = 8
         self.instrument_5.serial.parity = serial.PARITY_NONE
         self.instrument_5.serial.stopbits = 1
         self.instrument_5.serial.timeout = 0.5  # seconds
-        self.instrument_5.address = 2  # this is the slave address number
+        self.instrument_5.address = int(str(self.view.dev_5_adr_var.get()))  # this is the slave address number
         self.instrument_5.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
 
         # self.instrument_2.clear_buffers_before_each_transaction = True
         # self.instrument_1.close_port_after_each_call = True
+
+    def settings_6(self):
+        # self.instrument_6 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_6_adr_var)
+        self.instrument_6 = minimalmodbus.Instrument('com4', self.model.dev_6_adr_var)
+        self.instrument_6.serial.baudrate = 9600  # Baud
+        self.instrument_6.serial.bytesize = 8
+        self.instrument_6.serial.parity = serial.PARITY_NONE
+        self.instrument_6.serial.stopbits = 1
+        self.instrument_6.serial.timeout = 0.5  # seconds
+        self.instrument_6.address = int(str(self.view.dev_6_adr_var.get())) # this is the slave address number
+        self.instrument_6.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
+
+    def settings_7(self):
+        # self.instrument_7 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_7_adr_var)
+        self.instrument_7 = minimalmodbus.Instrument('com4', self.model.dev_7_adr_var)
+        self.instrument_7.serial.baudrate = 9600  # Baud
+        self.instrument_7.serial.bytesize = 8
+        self.instrument_7.serial.parity = serial.PARITY_NONE
+        self.instrument_7.serial.stopbits = 1
+        self.instrument_7.serial.timeout = 0.5  # seconds
+        self.instrument_7.address = int(str(self.view.dev_7_adr_var.get())) # this is the slave address number
+        self.instrument_7.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
+
+    def settings_8(self):
+        # self.instrument_8 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_8_adr_var)
+        self.instrument_8 = minimalmodbus.Instrument('com4', self.model.dev_8_adr_var)
+        self.instrument_8.serial.baudrate = 9600  # Baud
+        self.instrument_8.serial.bytesize = 8
+        self.instrument_8.serial.parity = serial.PARITY_NONE
+        self.instrument_8.serial.stopbits = 1
+        self.instrument_8.serial.timeout = 0.5  # seconds
+        self.instrument_8.address = int(str(self.view.dev_8_adr_var.get()))  # this is the slave address number
+        self.instrument_8.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
+
+
+
+    def settings_9(self):
+        # self.instrument_9 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_9_adr_var)
+        self.instrument_9 = minimalmodbus.Instrument('com4', self.model.dev_9_adr_var)
+        self.instrument_9.serial.baudrate = 9600  # Baud
+        self.instrument_9.serial.bytesize = 8
+        self.instrument_9.serial.parity = serial.PARITY_NONE
+        self.instrument_9.serial.stopbits = 1
+        self.instrument_9.serial.timeout = 0.5  # seconds
+        self.instrument_9.address = int(str(self.view.dev_9_adr_var.get()))  # this is the slave address number
+        self.instrument_9.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
+
+    def settings_10(self):
+        # self.instrument_10 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_10_adr_var)
+        self.instrument_10 = minimalmodbus.Instrument('com4', self.model.dev_10_adr_var)
+        self.instrument_10.serial.baudrate = 9600  # Baud
+        self.instrument_10.serial.bytesize = 8
+        self.instrument_10.serial.parity = serial.PARITY_NONE
+        self.instrument_10.serial.stopbits = 1
+        self.instrument_10.serial.timeout = 0.5  # seconds
+        self.instrument_10.address = int(str(self.view.dev_10_adr_var.get()))  # this is the slave address number
+        self.instrument_10.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
+
+    def settings_11(self):
+        # self.instrument_11 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_11_adr_var)
+        self.instrument_11 = minimalmodbus.Instrument('com4', self.model.dev_11_adr_var)
+        self.instrument_11.serial.baudrate = 9600  # Baud
+        self.instrument_11.serial.bytesize = 8
+        self.instrument_11.serial.parity = serial.PARITY_NONE
+        self.instrument_11.serial.stopbits = 1
+        self.instrument_11.serial.timeout = 0.5  # seconds
+        self.instrument_11.address = int(str(self.view.dev_11_adr_var.get()))  # this is the slave address number
+        self.instrument_11.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
+
+    def settings_12(self):
+        # self.instrument_12 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_12_adr_var)
+        self.instrument_12 = minimalmodbus.Instrument('com4', self.model.dev_12_adr_var)
+        self.instrument_12.serial.baudrate = 9600  # Baud
+        self.instrument_12.serial.bytesize = 8
+        self.instrument_12.serial.parity = serial.PARITY_NONE
+        self.instrument_12.serial.stopbits = 1
+        self.instrument_12.serial.timeout = 0.5  # seconds
+        self.instrument_12.address = int(str(self.view.dev_12_adr_var.get())) # this is the slave address number
+        self.instrument_12.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
+
+    def settings_13(self):
+        # self.instrument_13 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_13_adr_var)
+        self.instrument_13 = minimalmodbus.Instrument('com4', self.model.dev_13_adr_var)
+        self.instrument_13.serial.baudrate = 9600  # Baud
+        self.instrument_13.serial.bytesize = 8
+        self.instrument_13.serial.parity = serial.PARITY_NONE
+        self.instrument_13.serial.stopbits = 1
+        self.instrument_13.serial.timeout = 0.5  # seconds
+        self.instrument_13.address = int(str(self.view.dev_13_adr_var.get()))  # this is the slave address number
+        self.instrument_13.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
+
+    def settings_14(self):
+        # self.instrument_14 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_14_adr_var)
+        self.instrument_14 = minimalmodbus.Instrument('com4', self.model.dev_14_adr_var)
+        self.instrument_14.serial.baudrate = 9600  # Baud
+        self.instrument_14.serial.bytesize = 8
+        self.instrument_14.serial.parity = serial.PARITY_NONE
+        self.instrument_14.serial.stopbits = 1
+        self.instrument_14.serial.timeout = 0.5  # seconds
+        self.instrument_14.address = int(str(self.view.dev_14_adr_var.get()))  # this is the slave address number
+        self.instrument_14.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
+    def settings_15(self):
+        # self.instrument_15 = minimalmodbus.Instrument("/dev/ttyUSB0", self.model.dev_15_adr_var)
+        self.instrument_15 = minimalmodbus.Instrument('com4', self.model.dev_15_adr_var)
+        self.instrument_15.serial.baudrate = 9600  # Baud
+        self.instrument_15.serial.bytesize = 8
+        self.instrument_15.serial.parity = serial.PARITY_NONE
+        self.instrument_15.serial.stopbits = 1
+        self.instrument_15.serial.timeout = 0.5  # seconds
+        self.instrument_15.address = int(str(self.view.dev_15_adr_var.get()))  # this is the slave address number
+        self.instrument_15.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
+
 
     def transfer_data(self):
         self.model.mod_1_adr_var = self.view.mod_1_adr_var.get()
@@ -293,38 +427,55 @@ class Controller:
         self.model.mod_15_adr_var = self.view.mod_15_adr_var.get()
         self.model.dev_15_adr_var = self.view.dev_15_adr_var.get()
 
-
-    def data_pull_from_instrument(self,device_modbus,address_modbus):
+    def data_pull_from_instrument(self, device_modbus, address_modbus):
         match device_modbus:
-             case self.model.dev_1_adr_var:
-                 return self.instrument_1.read_float(int(address_modbus), functioncode=4)
-             case self.model.dev_2_adr_var:
-                 return self.instrument_2.read_float(int(address_modbus), functioncode=4)
-             case self.model.dev_3_adr_var:
-                 return self.instrument_3.read_float(int(address_modbus), functioncode=4)
-             case self.model.dev_4_adr_var:
-                 return self.instrument_4.read_float(int(address_modbus), functioncode=4)
-             case self.model.dev_5_adr_var:
-                 return self.instrument_5.read_float(int(address_modbus), functioncode=4)
-
-
+            case self.model.dev_1_adr_var:
+                return self.instrument_1.read_float(int(address_modbus), functioncode=4)
+            case self.model.dev_2_adr_var:
+                return self.instrument_2.read_float(int(address_modbus), functioncode=4)
+            case self.model.dev_3_adr_var:
+                return self.instrument_3.read_float(int(address_modbus), functioncode=4)
+            case self.model.dev_4_adr_var:
+                return self.instrument_4.read_float(int(address_modbus), functioncode=4)
+            case self.model.dev_5_adr_var:
+                return self.instrument_5.read_float(int(address_modbus), functioncode=4)
+            case self.model.dev_6_adr_var:
+                return self.instrument_6.read_float(int(address_modbus), functioncode=4)
+            case self.model.dev_7_adr_var:
+                return self.instrument_7.read_float(int(address_modbus), functioncode=4)
+            case self.model.dev_8_adr_var:
+                return self.instrument_8.read_float(int(address_modbus), functioncode=4)
+            case self.model.dev_9_adr_var:
+                return self.instrument_9.read_float(int(address_modbus), functioncode=4)
+            case self.model.dev_10_adr_var:
+                return self.instrument_10.read_float(int(address_modbus), functioncode=4)
+            case self.model.dev_11_adr_var:
+                return self.instrument_11.read_float(int(address_modbus), functioncode=4)
+            case self.model.dev_12_adr_var:
+                return self.instrument_12.read_float(int(address_modbus), functioncode=4)
+            case self.model.dev_13_adr_var:
+                return self.instrument_13.read_float(int(address_modbus), functioncode=4)
+            case self.model.dev_14_adr_var:
+                return self.instrument_14.read_float(int(address_modbus), functioncode=4)
+            case self.model.dev_15_adr_var:
+                return self.instrument_15.read_float(int(address_modbus), functioncode=4)
 
     def cycle_data(self):
 
         for i in range(self.conn_repeat_nr):
 
-                try:
-                 self.model.data_1 = self.data_pull_from_instrument(self.model.dev_1_adr_var,self.model.mod_1_adr_var)
-                 print(self.model.data_1)
-                 print(f'Pobrano data_1 {i}')
-                 break
-                except Exception:
-                   print(f'Błąd pobrania data_1 {i}')
+            try:
+                self.model.data_1 = self.data_pull_from_instrument(self.model.dev_1_adr_var, self.model.mod_1_adr_var)
+                print(self.model.data_1)
+                print(f'Pobrano data_1 {i}')
+                break
+            except Exception:
+                print(f'Błąd pobrania data_1 {i}')
 
         for i in range(self.conn_repeat_nr):
 
             try:
-                self.model.data_2 = self.data_pull_from_instrument(self.model.dev_2_adr_var,self.model.mod_2_adr_var)
+                self.model.data_2 = self.data_pull_from_instrument(self.model.dev_2_adr_var, self.model.mod_2_adr_var)
 
                 print(f'Pobrano data_2 {i}')
                 break
@@ -340,14 +491,6 @@ class Controller:
 
             except Exception:
                 print(f'Błąd pobrania data_3 {i}')
-
-                #   for i in range(self.conn_repeat_nr):
-        #           try:
-        # self.model.data_15 = (self.instrument_1.read_float(int(self.model.mod_15_adr_var), functioncode=4))
-        #               print(f'Pobrano data_15 {i}')
-        #               break
-        #           except:
-        #               print(f'Błąd pobrania data_15 {i}')
 
         for i in range(self.conn_repeat_nr):
             try:
@@ -401,7 +544,8 @@ class Controller:
         for i in range(self.conn_repeat_nr):
 
             try:
-                self.model.data_10 = self.data_pull_from_instrument(self.model.dev_10_adr_var, self.model.mod_10_adr_var)
+                self.model.data_10 = self.data_pull_from_instrument(self.model.dev_10_adr_var,
+                                                                    self.model.mod_10_adr_var)
                 print(f'Pobrano data_10 {i}')
                 break
             except:
@@ -409,7 +553,8 @@ class Controller:
 
         for i in range(self.conn_repeat_nr):
             try:
-                self.model.data_11 = self.data_pull_from_instrument(self.model.dev_11_adr_var, self.model.mod_11_adr_var)
+                self.model.data_11 = self.data_pull_from_instrument(self.model.dev_11_adr_var,
+                                                                    self.model.mod_11_adr_var)
                 print(f'Pobrano data_11 {i}')
                 break
             except:
@@ -418,7 +563,8 @@ class Controller:
         for i in range(self.conn_repeat_nr):
 
             try:
-                self.model.data_12 = self.data_pull_from_instrument(self.model.dev_12_adr_var, self.model.mod_12_adr_var)
+                self.model.data_12 = self.data_pull_from_instrument(self.model.dev_12_adr_var,
+                                                                    self.model.mod_12_adr_var)
                 print(f'Pobrano data_12 {i}')
                 break
             except:
@@ -427,7 +573,8 @@ class Controller:
         for i in range(self.conn_repeat_nr):
 
             try:
-                self.model.data_13 = self.data_pull_from_instrument(self.model.dev_13_adr_var, self.model.mod_13_adr_var)
+                self.model.data_13 = self.data_pull_from_instrument(self.model.dev_13_adr_var,
+                                                                    self.model.mod_13_adr_var)
                 print(f'Pobrano data_13 {i}')
                 break
             except:
@@ -435,12 +582,23 @@ class Controller:
 
         for i in range(self.conn_repeat_nr):
             try:
-                self.model.data_14 = self.data_pull_from_instrument(self.model.dev_14_adr_var, self.model.mod_14_adr_var)
+                self.model.data_14 = self.data_pull_from_instrument(self.model.dev_14_adr_var,
+                                                                    self.model.mod_14_adr_var)
 
                 print(f'Pobrano data_14 {i}')
                 break
             except:
                 print(f'Błąd pobrania data_14 {i}')
+
+        for i in range(self.conn_repeat_nr):
+            try:
+                self.model.data_15 = self.data_pull_from_instrument(self.model.dev_15_adr_var,
+                                                                    self.model.mod_15_adr_var)
+
+                print(f'Pobrano data_15 {i}')
+                break
+            except:
+                print(f'Błąd pobrania data_15 {i}')
 
     def start_save(self):
         self.t2s = time.time()
